@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Testing HTML Email</title>
+      <style>
+         /* -------------------------------------
+         GLOBAL
+         ------------------------------------- */
+         * {
+         font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+         font-size: 100%;
+         line-height: 1.6em;
+         margin: 0;
+         padding: 0;
+         }
+         /* -------------------------------------
+         BODY
+         ------------------------------------- */
+         table.body-wrap {
+         padding: 20px;
+         width: 100%;
+         }
+         table.body-wrap .container {
+         border: 1px solid #f0f0f0;
+         }
+         /* -------------------------------------
+         FOOTER
+         ------------------------------------- */
+         table.footer-wrap {
+         clear: both !important;
+         width: 100%;  
+         }
+         .footer-wrap .container p {
+         color: #666666;
+         font-size: 12px;
+         }
+         table.footer-wrap a {
+         color: #999999;
+         }
+         /* ---------------------------------------------------
+         RESPONSIVENESS
+         ------------------------------------------------------ */
+         /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+         .container {
+         clear: both !important;
+         display: block !important;
+         Margin: 0 auto !important;
+         max-width: 800px !important;
+         }
+         /* Set the padding on the td rather than the div for Outlook compatibility */
+         .body-wrap .container {
+         padding: 20px;
+         }
+         /* Let's make sure tables in the content area are 100% wide */
+         .content table {
+         width: 100%;
+         }
+         /* -------------------------------------
+         Table Formatting
+         ------------------------------------- */
+         .data-owner-info table,.data-owner-info td,.data-owner-info th {
+         border: 1px solid;
+         text-align: center;
+         }
+         .data-owner-info th {
+         background-color: #FF5050;
+         color: white;
+         }
+         .application-details table,.application-details td,.application-details th {
+         border: 1px solid;
+         text-align: center;
+         }
+         .application-details th{
+         background-color: #FF9933;
+         color: white;
+         }
+      </style>
+   </head>
+   <body bgcolor="#f6f6f6">
+      <!-- body -->
+      <table class="body-wrap" bgcolor="#f6f6f6">
+         <tr>
+            <td class="container" bgcolor="#FFFFFF">
+               <!-- content -->
+               <p>Hi Sen,</p>
+               <div class="content">
+                  <table>
+                    <!--  <tr>
+                        <td>
+                           <table class = "data-owner-info">
+                              <tr>
+                                 <th>Application Prefix</th>
+                                 <th>Application Type</th>
+                                 <th>Primary IT Data Steward</th>
+                                 <th>Secondary IT Data Steward</th>
+                                 <th>Business Application Owner</th>
+                              </tr>
+                              <tr>
+                                 <td>Sen Lin'Testing</td>
+                                 <td>Testing HTML EMAIL</td>
+                                 <td>Bill Gates</td>
+                                 <td>Mark Zuckerberg</td>
+                                 <td>Sen Lin</td>
+                              </tr>
+                           </table>
+                        <td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <table class = "application-details">
+                              <caption>
+                                 <strong>Application name is Test</strong>
+                              </caption>
+                              <tr>
+                                 <th>Contains Critical Data</th>
+                                 <th>Business Data Set Name</th>
+                                 <th>ID</th>
+                                 <th>Source Datastore(s)</th>
+                                 <th>Target Datastore(s)</th>
+                                 <th>Usage purpose(s)</th>
+                                 <th>Usage Comments</th>
+                                 <th>Requesting Project</th>
+                              </tr>
+                              <tr>
+                                 <td>Yes</td>
+                                 <td>workday</td>
+                                 <td>111</td>
+                                 <td>Vanguard Crew</td>
+                                 <td>Vanguard Crew2</td>
+                                 <td>Testing</td>
+                                 <td>Test</td>
+                                 <td>workday project</td>
+                              </tr>
+
+                              <tr>
+                                 <td>No</td>
+                                 <td>workday</td>
+                                 <td>222</td>
+                                 <td>account</td>
+                                 <td>account2</td>
+                                 <td>Testing</td>
+                                 <td>Test</td>
+                                 <td>workday project</td>
+                              </tr>
+                           </table>
+                        <td>
+                     </tr> -->
+                     <#=tw.local.message#>
+                  </table>
+               </div>
+               <!-- /content -->
+            </td>
+            <td></td>
+         </tr>
+      </table>
+      <!-- /body -->
+      <!-- footer -->
+      <table class="footer-wrap">
+         <tr>
+            <td></td>
+            <td class="container">
+               <!-- content -->
+               <div class="content">
+                  <table>
+                     <tr>
+                        <td align="center">
+                           <p>
+                              Don't like these annoying emails? 
+                              <a href="#">
+                                 <unsubscribe>Unsubscribe</unsubscribe>
+                              </a>
+                              .
+                           </p>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <!-- /content -->
+            </td>
+            <td></td>
+         </tr>
+      </table>
+      <!-- /footer -->
+   </body>
+</html>
