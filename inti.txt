@@ -1,0 +1,34 @@
+//tw.local.dataScope = new tw.object.DataScope();
+//tw.local.dataScope.submitter = initNVP("Jepperson, Jacob", "UKNK");
+tw.local.dataScope.projectName = "Test Project Name for Email";
+tw.local.dataScope.dataScopeType = "IT Standard";
+tw.local.dataScope.application = new tw.object.listOf.Application();
+tw.local.dataScope.application.insertIntoList(0, new tw.object.Application());
+tw.local.dataScope.application.insertIntoList(1, new tw.object.Application());
+
+tw.local.dataScope.application[0].dataSet = new tw.object.listOf.DataSet();
+tw.local.dataScope.application[0].dataSet.insertIntoList(0, new tw.object.DataSet());
+tw.local.dataScope.application[0].dataSet[0].dataStore = new tw.object.listOf.DataStore();
+tw.local.dataScope.application[0].dataSet[0].dataStore.insertIntoList(0, new tw.object.DataStore());
+
+
+tw.local.dataScope.application[0].dataSet[1] = new tw.object.DataSet();
+tw.local.dataScope.application[0].dataSet[1].dataStore = new tw.object.listOf.DataStore();
+tw.local.dataScope.application[0].dataSet[1].dataStore[1] = new tw.object.DataStore();
+
+tw.local.dataScope.application[0].primaryITApplicationSteward = "Tom--app0,primaryIT";
+tw.local.dataScope.application[0].secondaryITApplicationSteward = "John Smith";
+tw.local.dataScope.application[0].businessApplicationOwner = "Alice--app0,business";
+tw.local.dataScope.application[0].secondaryITApplicationSteward = "Scott--app0, SecItApp";
+tw.local.dataScope.application[0].dataSet[0].dataSteward = "John--App0,dataset0";
+tw.local.dataScope.application[0].dataSet[0].dataStore[0].primaryITDataSteward = "datastore3--App0,dataset0,pri";
+tw.local.dataScope.application[0].dataSet[0].dataStore[0].secondaryITDataSteward = "datastore2--App0,dataset0, sec";
+
+tw.local.dataScope.application[1].primaryITApplicationSteward = "Tom--app0,primaryIT";
+
+tw.local.mailIndicesMap = new tw.object.Map();
+var list = new tw.object.listOf.Integer();
+list.insertIntoList(0, 0);
+list.insertIntoList(1, 1);
+tw.local.mailIndicesMap.put("lins@us.ibm.com", list);
+tw.local.email = "lins@us.ibm.com";

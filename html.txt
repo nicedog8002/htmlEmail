@@ -1,0 +1,71 @@
+var indicesOfApps = tw.local.mailIndicesMap.get(tw.local.email);
+var message = "";
+message += "<tr>";
+message += "   <td>";
+//mailIndicesMap get a list of indices of applicaitons involved for this person given their email address
+for (var i = 0; i < indicesOfApps.listLength; i++) {
+    var indexOfApp = indicesOfApps[i];
+    var app = tw.local.dataScope.application[indexOfApp];
+    message += "      <table class = \"data-owner-info\">";
+    message += "         <tr>";
+    message += "            <th>Application Prefix<\/th>";
+    message += "            <th>Application Type<\/th>";
+    message += "            <th>Primary IT Data Steward<\/th>";
+    message += "            <th>Secondary IT Data Steward<\/th>";
+    message += "            <th>Business Application Owner<\/th>";
+    message += "         <\/tr>";
+    message += "         <tr>";
+    message += "            <td>" + app.prefix + "<\/td>";
+    message += "            <td>" + app.type + "<\/td>";
+    message += "            <td>" + app.primaryITApplicationSteward + "<\/td>";
+    message += "            <td>" + app.secondaryITApplicationSteward + "<\/td>";
+    message += "            <td>" + app.businessApplicationOwner + "<\/td>";
+    message += "         <\/tr>";
+    message += "      <\/table>";
+    message += "   <td>";
+    message += "<\/tr>";
+
+    message += "<tr>";
+    message += "   <td>";
+    message += "      <table class = \"application-details\">";
+    message += "         <caption>";
+    message += "         <strong>" + app.name + "<\/strong>";
+    message += "         <caption>";
+    //j = dataset index
+    for (var j = 0; j < app.dataSet.listLength; j++) {
+    var isCritical = app.dataSet[j].containsCriticalTerms==true? "Yes": "No";
+        message += "         <tr>";
+        message += "            <th>Contains Critical Data<\/th>";
+        message += "            <th>Business Data Set Name<\/th>";
+        message += "            <th>ID<\/th>";
+        message += "            <th>Source Datastore(s)<\/th>";
+        message += "            <th>Target Datastore(s)<\/th>";
+        message += "            <th>Usage purpose(s)<\/th>";
+        message += "            <th>Usage Comments<\/th>";
+        message += "            <th>Requesting Project<\/th>";
+        message += "            <th>Approval Status<\/th>";
+        message += "            <th>Last Update Date<\/th>";
+        message += "         <\/tr>";
+        //k = datastore index
+        for (var k = 0; k < app.dataSet[j].dataStore.listLength; k++) {
+            message += "         <tr>";
+            message += "            <td>" + isCritical + "<\/td>";
+//            message += "            <td>" + app.dataSet[j].name + "<\/td>";
+            message += "            <td>" + app.dataSet[j].externalId + "<\/td>";
+            message += "            <td>" + app.dataSet[j].dataStore[k].name + "<\/td>";
+            message += "            <td>" + app.dataSet[j].dataStore[k].name + "<\/td>";
+            message += "            <td>" + app.dataSet[j].usagePurpose.name + ": " + app.dataSet[j].usagePurpose.value + "<\/td>";
+            message += "            <td>" + app.dataSet[j].comments + "<\/td>";
+            message += "            <td>" + app.dataSet[j].requestingProjectName + "<\/td>";
+            message += "            <td>" + app.dataSet[j].approvalStatus + "<\/td>";
+            message += "            <td>" + app.dataSet[j].timeStamp + "<\/td>";
+            message += "         <\/tr>";
+        }
+    }
+    message += "      <\/table>";
+}
+
+message += "   <td>";
+message += "<\/tr>";
+
+tw.local.applicationDetails = message;
